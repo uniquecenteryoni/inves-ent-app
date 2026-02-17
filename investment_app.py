@@ -937,7 +937,7 @@ with tab_simulation:
             st.markdown("### 📈 גרף השוואת פורטפוליו")
             fig.add_hline(y=initial_capital * exchange_rate, line_dash="dash", line_color="gray", annotation_text="סכום התחלתי", annotation_position="top left")
             if is_future:
-                fig.add_vline(x=datetime.today(), line_dash="dot", line_color="#ffcc00", annotation_text="היום", annotation_position="top right")
+                fig.add_vline(x=datetime.today().timestamp() * 1000, line_dash="dot", line_color="#ffcc00", annotation_text="היום", annotation_position="top right")
             fig.update_layout(template="plotly_dark", height=520, margin=dict(l=20, r=20, t=40, b=20), xaxis_title="תאריך", yaxis_title=f"שווי ({cur_symbol})", hovermode="x unified", legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1))
             st.plotly_chart(fig, use_container_width=True)
             st.markdown('</div>', unsafe_allow_html=True)
